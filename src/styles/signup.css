@@ -1,0 +1,102 @@
+.main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  background-color: rgb(255, 255, 255);
+}
+
+.login_form {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login_logo {
+  font-family: "Poppins";
+  font-size: x-large;
+  font-weight: bolder;
+}
+.login_heading {
+  font-family: "Poppins";
+  font-size: medium;
+}
+.input_field {
+  height: 40px;
+  width: 300px;
+  padding: 10px;
+  box-shadow: none;
+  background-color: whitesmoke;
+  margin: 8px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+.submit_button {
+  height: 40px;
+  width: 300px;
+  margin: 8px;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: "Poppins";
+  background-color: turquoise;
+  font-weight: bold;
+  color: white;
+}
+.button_loading {
+  height: 40px;
+  width: 320px;
+  margin: 8px;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: "Poppins";
+  background-color: orchid;
+  font-weight: bold;
+  color: white;
+}
+
+.link {
+  font-family: "Poppins";
+  text-decoration: none;
+  font-size: 15px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.form_disclaimer {
+  margin-top: 10px;
+  color: rgb(177, 177, 177);
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Poppins";
+}
+.errors {
+  font-family: "Poppins";
+  font-size: small;
+  font-weight: bold;
+  color: orangered;
+}
+
+.loader {
+  height: 40px;
+  width: 40px;
+  border: 7px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 7px solid turquoise;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

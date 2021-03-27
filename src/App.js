@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import UserProfile from "./components/UserProfile";
+import Dashboard from "./components/Dashboard";
+import "semantic-ui-css/semantic.min.css";
+import PrivateRoute, { AuthRoute } from "./components/AuthRoute";
+import { useContext } from "react";
+import { UsersContext } from "./providers/UsersProvider";
+import NotFound from "./components/NotFound";
 
 function App() {
+  const { user } = useContext(UsersContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <PrivateRoute path="/dashboard" user={user}>
+        <Dashboard />
+      </PrivateRoute>
+      <Route path="/:id" component={UserProfile} />
+      <Route path="/404" component={NotFound} />
+    </Switch>
   );
 }
 
