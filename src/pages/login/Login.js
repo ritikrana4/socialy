@@ -1,11 +1,14 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable react/prop-types */
 import React, { useContext, useState } from "react";
-import Header from "./Header";
-import "../styles/login.css";
-import { UsersContext } from "../providers/UsersProvider";
+import Header from "../../components/Header";
+import "./login.css";
+import { UsersContext } from "../../providers/UsersProvider";
 import { Link, Redirect, withRouter } from "react-router-dom";
-import { auth } from "../firebase";
-import Loading from "./Loading";
+import { auth } from "../../firebase";
+import Loading from "../../components/Loading";
 
+// eslint-disable-next-line react/prop-types
 function Login({ history }) {
   const [values, setValues] = useState({
     Email: "",

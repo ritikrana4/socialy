@@ -1,12 +1,14 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable react/prop-types */
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { auth, firestore } from "../firebase";
-import Header from "./Header";
-import "../styles/signup.css";
-import { createUserProfileDocument } from "../firebase";
+import { auth, firestore } from "../../firebase";
+import Header from "../../components/Header";
+import "./signup.css";
+import { createUserProfileDocument } from "../../firebase";
 import { withRouter, Redirect } from "react-router-dom";
-import { UsersContext } from "../providers/UsersProvider";
-import Loading from "./Loading";
+import { UsersContext } from "../../providers/UsersProvider";
+import Loading from "../../components/Loading";
 
 function Signup({ history }) {
   const [values, setValues] = useState({
@@ -36,9 +38,12 @@ function Signup({ history }) {
           await auth
             .createUserWithEmailAndPassword(values.Email, values.Password)
             .then((user) => {
-              createUserProfileDocument(user, values.UserName);
+              createUserProfileDocument(
+                user,
+                values.UserName.toString().toLowerCase()
+              );
             })
-            .then(() => history.push("/userprofile"));
+            .then(() => history.push("/dashboard"));
           //send verification email
           // auth.currentUser.sendEmailVerification({
           //   url: "http://localhost:3000",
@@ -49,6 +54,7 @@ function Signup({ history }) {
       } catch (err) {
         let error = "Account already exists.";
         setErrors(error);
+        setLoading(false);
       }
     }
   };
@@ -69,6 +75,10 @@ function Signup({ history }) {
       error = "Please fill all fields";
       setErrors(error);
       return false;
+    } else if (!isUserNameValid(values)) {
+      error = "UserName already exists.";
+      setErrors(error);
+      return false;
     } else if (!isEmailValid(values)) {
       //check if email formatted or not
       error = "Email is not valid";
@@ -78,6 +88,21 @@ function Signup({ history }) {
       //if password not valid generate error message
       error = "Password is not valid";
       setErrors(error);
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const isUserNameValid = ({ UserName }) => {
+    let user = UserName.toLowerCase();
+    if (
+      user === "signup" ||
+      user === "login" ||
+      user === "home" ||
+      user === "dashboard" ||
+      user === "404"
+    ) {
       return false;
     } else {
       return true;

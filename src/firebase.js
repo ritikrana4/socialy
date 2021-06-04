@@ -23,4 +23,8 @@ export const createUserProfileDocument = async (user, userName) => {
   await firestore.doc(`users/${userName}`).set({ userName });
 };
 
+export const updateBio = async (uid, Name, Tag, Bio) => {
+  await firestore.doc(`usersdata/${uid}`).set({ Name, Tag, Bio });
+};
+
 export default firebase;

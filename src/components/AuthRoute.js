@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+/* eslint-disable react/prop-types */
+import React from "react";
 import { Redirect, Route } from "react-router";
-import { auth } from "../firebase";
-import { UsersContext } from "../providers/UsersProvider";
 
 function PrivateRoute({ user, children, ...rest }) {
   return (
