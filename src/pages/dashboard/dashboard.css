@@ -1,14 +1,35 @@
 .maincontainer-dash {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 50px;
+  margin-left: 50px;
   flex-direction: column;
   width: 100vw;
 }
 
 .formelements {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   flex-direction: column;
+
+  margin-right: 30px;
+}
+
+.biography {
+  height: 235px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.edit-profile {
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 20px;
 }

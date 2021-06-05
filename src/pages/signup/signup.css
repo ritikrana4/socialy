@@ -23,23 +23,33 @@
   font-family: "Poppins";
   font-size: medium;
 }
+label {
+  font-size: 14px;
+  font-family: "Poppins";
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+textarea {
+  resize: none;
+}
 .input_field {
   height: 40px;
   width: 300px;
   padding: 10px;
   box-shadow: none;
   background-color: whitesmoke;
-  margin: 8px;
+  color: #5c5b5b;
+  margin-bottom: 10px;
   border: none;
   border-radius: 3px;
   font-size: 14px;
   font-family: "Poppins";
-  font-weight: bold;
+  font-weight: normal;
 }
 .submit_button {
   height: 40px;
   width: 300px;
-  margin: 8px;
+
   border: none;
   border-radius: 3px;
   font-size: 15px;

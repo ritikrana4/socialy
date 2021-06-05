@@ -20,11 +20,26 @@ export const auth = firebase.auth();
 export const storage = firebase.storage();
 
 export const createUserProfileDocument = async (user, userName) => {
-  await firestore.doc(`users/${userName}`).set({ userName });
+  console.log(user);
+  await firestore
+    .doc(`users/${userName}`)
+    .set({ userName: userName, uid: user.user.uid, updated: false });
 };
 
-export const updateBio = async (uid, Name, Tag, Bio) => {
-  await firestore.doc(`usersdata/${uid}`).set({ Name, Tag, Bio });
+export const updateBio = async (
+  uid,
+  Name,
+  Tag,
+  Bio,
+  twitter,
+  facebook,
+  instagram,
+  linkedin,
+  youtube
+) => {
+  await firestore
+    .doc(`usersdata/${uid}`)
+    .set({ Name, Tag, Bio, twitter, facebook, instagram, linkedin, youtube });
 };
 
 export default firebase;

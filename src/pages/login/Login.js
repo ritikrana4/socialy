@@ -36,8 +36,14 @@ function Login({ history }) {
       setLoading(true);
       auth
         .signInWithEmailAndPassword(values.Email, values.Password)
-        .then(() => history.push("/dashboard"))
-        .catch(() => setErrors("Email and Password did not match"));
+        .then(() => {
+          history.push("/dashboard");
+          console.log(auth.currentUser);
+        })
+        .catch(() => {
+          setErrors("Email and Password did not match");
+          setLoading(false);
+        });
     }
   };
 
@@ -106,9 +112,6 @@ function Login({ history }) {
           <Header />
           <div className="main">
             <div className="login_form">
-              <h1 className="login_logo">
-                <span>🚀</span> Allink
-              </h1>
               <h1 className="login_heading">Login to your Account</h1>
 
               <form onSubmit={handleSubmit}>

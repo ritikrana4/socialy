@@ -11,7 +11,7 @@ function Headers() {
     <Segment>
       <Menu secondary>
         <Link to="/">
-          <Menu.Item name="Socially" />
+          <Menu.Item name="⭐BioMe" />
         </Link>
 
         {!user ? (

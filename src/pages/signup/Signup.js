@@ -38,6 +38,7 @@ function Signup({ history }) {
           await auth
             .createUserWithEmailAndPassword(values.Email, values.Password)
             .then((user) => {
+              console.log(user);
               createUserProfileDocument(
                 user,
                 values.UserName.toString().toLowerCase()
@@ -159,9 +160,6 @@ function Signup({ history }) {
           <Header />
           <div className="main">
             <div className="login_form">
-              <h1 className="login_logo">
-                <span>🚀</span> Allink
-              </h1>
               <h1 className="login_heading">Create your Account</h1>
 
               <form onSubmit={handleSubmit}>
