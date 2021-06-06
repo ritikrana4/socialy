@@ -1,0 +1,36 @@
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: "Poppins";
+}
+.main-heading {
+  margin-top: 160px;
+  font-weight: 600;
+  font-size: 50px;
+  margin-bottom: 35px;
+}
+.main-subheading {
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+.main-button {
+  height: 50px;
+  width: 200px;
+  border: none;
+  border-radius: 3px;
+  font-size: 19px;
+  font-family: "Poppins";
+  background-color: turquoise;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.main-image {
+  margin-top: 100px;
+  width: 490px;
+  height: 380px;
+}
