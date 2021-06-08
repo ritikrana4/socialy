@@ -1,14 +1,30 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Segment, Menu } from "semantic-ui-react";
+
 import { UsersContext } from "../providers/UsersProvider";
 import { auth } from "../firebase";
+import "./header.css";
 
 function Headers() {
   const { user } = useContext(UsersContext);
-
+  console.log(user, auth);
   return (
-    <Segment>
+    <div>
+      <header className="header">
+        <div className="header-logo">
+          <Link to="/">Socialy</Link>
+        </div>
+        <div className="header-links">
+          <Link className="header-link" to="/login">
+            Login
+          </Link>
+          <Link className="header-link" to="/signup">
+            Signup
+          </Link>
+        </div>
+      </header>
+    </div>
+    /* <Segment>
       <Menu secondary>
         <Link to="/">
           <Menu.Item name="⭐BioMe" />
@@ -34,7 +50,7 @@ function Headers() {
           </Menu.Menu>
         )}
       </Menu>
-    </Segment>
+    </Segment> */
   );
 }
 
