@@ -5,6 +5,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   font-family: "Poppins";
+  height: 100vh;
+  background-color: #f1faee;
 }
 .main-heading {
   margin-top: 160px;
@@ -33,4 +35,16 @@
   margin-top: 100px;
   width: 490px;
   height: 380px;
+}
+
+.footer {
+  font-family: "Poppins";
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1faee;
+  color: black;
+  text-align: center;
+  padding: 5px;
 }
