@@ -28,6 +28,7 @@ export const createUserProfileDocument = async (user, userName) => {
 
 export const updateBio = async (
   uid,
+  username,
   Name,
   Tag,
   Bio,
@@ -39,7 +40,17 @@ export const updateBio = async (
 ) => {
   await firestore
     .doc(`usersdata/${uid}`)
-    .set({ Name, Tag, Bio, twitter, facebook, instagram, linkedin, youtube });
+    .set({
+      Name,
+      username,
+      Tag,
+      Bio,
+      twitter,
+      facebook,
+      instagram,
+      linkedin,
+      youtube,
+    });
 };
 
 export default firebase;
