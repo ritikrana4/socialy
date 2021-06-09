@@ -43,9 +43,8 @@ function UserProfile() {
     try {
       const snapshot = await firestore.doc(`users/${id}`).get();
 
-      if (snapshot.exists) {
+      if (snapshot.exists && snapshot.data().updated) {
         const { uid } = snapshot.data();
-
         const data = await firestore.doc(`usersdata/${uid}`).get();
         await setUserdata(data.data());
         console.log(userdata);

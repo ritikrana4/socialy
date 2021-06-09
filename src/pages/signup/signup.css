@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  background-color: #f1faee;
 }
 
 .login_form {
@@ -45,6 +45,7 @@ textarea {
   font-size: 14px;
   font-family: "Poppins";
   font-weight: normal;
+  border: 2px solid black;
 }
 .submit_button {
   height: 40px;
@@ -83,7 +84,7 @@ textarea {
   margin-top: 10px;
   color: rgb(177, 177, 177);
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 100px;
   font-family: "Poppins";
 }
 .errors {

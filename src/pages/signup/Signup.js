@@ -43,7 +43,9 @@ function Signup({ history }) {
                 user,
                 values.UserName.toString().toLowerCase()
               );
+              createUsersData(user.user, values.UserName);
             })
+
             .then(() => history.push("/dashboard"));
           //send verification email
           // auth.currentUser.sendEmailVerification({
@@ -58,6 +60,21 @@ function Signup({ history }) {
         setLoading(false);
       }
     }
+  };
+  const createUsersData = async (user, username) => {
+    await firestore
+      .doc(`usersdata/${user.uid}`)
+      .set({
+        username: username,
+        Name: "",
+        Tag: "",
+        Bio: "",
+        twitter: "",
+        facebook: "",
+        instagram: "",
+        linkedin: "",
+        youtube: "",
+      });
   };
 
   const handleChange = (event) => {
@@ -156,7 +173,6 @@ function Signup({ history }) {
         <Redirect to="/dashboard" />
       ) : (
         <div>
-          {" "}
           <Header />
           <div className="main">
             <div className="login_form">
@@ -215,6 +231,7 @@ function Signup({ history }) {
               </form>
             </div>
           </div>
+          <div className="footer">© 2021 socialy.me</div>
         </div>
       )}
     </div>

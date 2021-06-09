@@ -1,0 +1,30 @@
+.notfound-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-color: #f1faee;
+}
+.notfound-image {
+  width: 350px;
+  height: 300px;
+}
+.notfound-heading {
+  font-family: "Poppins";
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.notfound-button {
+  height: 40px;
+  width: 200px;
+
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: "Poppins";
+  background-color: turquoise;
+  font-weight: bold;
+  color: white;
+}

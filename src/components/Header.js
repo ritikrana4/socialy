@@ -7,21 +7,34 @@ import "./header.css";
 
 function Headers() {
   const { user } = useContext(UsersContext);
-  console.log(user, auth);
+
   return (
     <div>
       <header className="header">
         <div className="header-logo">
           <Link to="/">Socialy</Link>
         </div>
-        <div className="header-links">
-          <Link className="header-link" to="/login">
-            Login
-          </Link>
-          <Link className="header-link" to="/signup">
-            Signup
-          </Link>
-        </div>
+        {!user ? (
+          <div className="header-links">
+            <Link className="header-link" to="/login">
+              Login
+            </Link>
+            <Link className="header-link" to="/signup">
+              Signup
+            </Link>
+          </div>
+        ) : (
+          <div
+            className="header-links"
+            onClick={() => {
+              auth.signOut();
+            }}
+          >
+            <Link className="header-link" to="/login">
+              Logout
+            </Link>
+          </div>
+        )}
       </header>
     </div>
     /* <Segment>

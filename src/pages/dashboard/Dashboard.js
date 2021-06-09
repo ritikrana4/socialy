@@ -6,7 +6,9 @@ import { firestore, updateBio } from "../../firebase";
 
 function Dashboard() {
   const { user } = useContext(UsersContext);
+  const [active, setactive] = useState("true");
   const [values, setValues] = useState({
+    username: "",
     Name: "",
     Tag: "",
     Bio: "",
@@ -26,6 +28,7 @@ function Dashboard() {
     try {
       const snapshot = await firestore.doc(`usersdata/${user.uid}`).get();
       const {
+        username,
         Name,
         Bio,
         Tag,
@@ -36,6 +39,7 @@ function Dashboard() {
         youtube,
       } = snapshot.data();
       setValues({
+        username,
         Name,
         Bio,
         Tag,
@@ -45,6 +49,10 @@ function Dashboard() {
         linkedin,
         youtube,
       });
+      console.log(values);
+      const dat = await firestore.doc(`users/${username}`).get();
+      const { updated } = await dat.data();
+      setactive(updated);
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +71,7 @@ function Dashboard() {
     setLoading(true);
     updateBio(
       user.uid,
+      values.username.toString(),
       values.Name.toString(),
       values.Tag.toString(),
       values.Bio.toString(),
@@ -72,6 +81,9 @@ function Dashboard() {
       values.linkedin.toString(),
       values.youtube.toString()
     );
+    const dat = await firestore.doc(`users/${values.username}`);
+
+    dat.set({ username: values.username, updated: true, uid: user.uid });
     setLoading(false);
     alert("saved");
   };
@@ -79,8 +91,13 @@ function Dashboard() {
   return (
     <div>
       <Headers />
-
-      <div className="edit-profile">Edit Profile &gt;</div>
+      {!active ? (
+        <div className="dashboard-active">
+          ❌Your account is not active, please update your profile.
+        </div>
+      ) : (
+        <div className="dashboard-active"></div>
+      )}
       <div className="maincontainer-dash">
         <div>
           <form onSubmit={handleSubmit} className="forms">

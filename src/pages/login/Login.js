@@ -147,6 +147,7 @@ function Login({ history }) {
               </form>
             </div>
           </div>
+          <div className="footer">© 2021 socialy.me</div>
         </div>
       )}
     </div>
